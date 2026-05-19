@@ -959,16 +959,37 @@
     });
   });
 
-  // Force video thumbs to be tappable on Android Chrome
-  document.querySelectorAll('.video-thumb').forEach(el => {
-    el.addEventListener('touchstart', function(e) {
-      // do nothing, just registers as interactive
-    }, { passive: true });
-    el.addEventListener('touchend', function(e) {
-      e.preventDefault();
-      window.open(this.href, '_blank');
-    });
+
+  
+  // Mobile menu
+const menuBtn = document.getElementById('menuBtn');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('sidebarOverlay');
+
+function openSidebar() {
+  sidebar.classList.add('open');
+  overlay.classList.add('active');
+  menuBtn.textContent = '✕ Close';
+}
+
+function closeSidebar() {
+  sidebar.classList.remove('open');
+  overlay.classList.remove('active');
+  menuBtn.textContent = '☰ Menu';
+}
+
+menuBtn.addEventListener('click', () => {
+  sidebar.classList.contains('open') ? closeSidebar() : openSidebar();
+});
+
+overlay.addEventListener('click', closeSidebar);
+
+// Close sidebar when nav tapped
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth <= 960) closeSidebar();
   });
+});
 
   // Accordion
   function toggleExp(id) { document.getElementById(id).classList.toggle('open'); }
