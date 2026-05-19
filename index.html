@@ -198,8 +198,13 @@
     .work-card a {
       display: block;
       margin-top: 16px;
+      position: relative;
+      z-index: 10;
       -webkit-tap-highlight-color: rgba(42,171,140,0.3);
       touch-action: manipulation;
+    }
+    .work-card::before {
+      z-index: 1;
     }
 
     /* SECTION */
@@ -434,7 +439,6 @@
       }
 
       .sidebar-overlay { display: block; }
-
       .menu-btn { display: block; }
 
       /* Main content: full width, small top padding for menu button */
@@ -445,6 +449,19 @@
       .section { padding: 44px 24px; }
       .work-grid, .skills-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 12px; padding: 36px 24px; text-align: center; }
+
+      /* Ensure portfolio video links are always tappable on mobile */
+      #portfolio .work-card {
+        overflow: visible;
+        position: relative;
+        z-index: 1;
+      }
+      #portfolio .work-card a {
+        position: relative;
+        z-index: 20;
+        display: block;
+        margin-top: 12px;
+      }
     }
 
     @media (max-width: 520px) {
