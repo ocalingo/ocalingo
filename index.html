@@ -116,7 +116,7 @@
     .sb-contact-text a:hover { color: var(--accent); }
 
     /* ── MAIN ── */
-    .content { overflow: hidden; }
+    .content { overflow: visible; }
 
     /* HERO */
     .hero {
@@ -289,7 +289,7 @@
     .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .work-card {
       background: var(--surface); border: 1px solid var(--border);
-      padding: 32px; position: relative; overflow: hidden;
+      padding: 32px; position: relative; overflow: visible;
       opacity: 0; transform: translateY(14px);
       transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.2s;
     }
@@ -302,6 +302,31 @@
     .work-card:hover { border-color: rgba(42,171,140,0.2); }
     .work-card:hover::before { width: 100%; }
     .work-card.visible { opacity: 1; transform: translateY(0); }
+
+    /* Video thumbnail */
+    .video-thumb {
+      display: block;
+      margin-top: 16px;
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      -webkit-tap-highlight-color: rgba(42,171,140,0.3);
+    }
+    .video-thumb img {
+      display: block;
+      width: 100%;
+      border: 1px solid rgba(42,171,140,0.2);
+    }
+    .video-thumb-overlay {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(42,171,140,0.9);
+      padding: 14px 24px; color: #fff;
+      font-size: 0.7rem; letter-spacing: 0.14em;
+      text-transform: uppercase;
+      pointer-events: none;
+      white-space: nowrap;
+    }
 
     .work-tag {
       font-size: 0.58rem; letter-spacing: 0.18em;
@@ -733,56 +758,25 @@
           <p class="work-desc">Centimo app puts everything you need, from easy payments to smart savings, right in your pocket.</p>
 
           <!-- YouTube Embed -->
-          <a href="https://www.youtube.com/watch?v=5sMlyRvPR04" target="_blank" 
-              style="display:block; margin-top:16px; position:relative; 
-              -webkit-tap-highlight-color: rgba(42,171,140,0.2);
-              cursor:pointer;">
-              <img src="https://img.youtube.com/vi/5sMlyRvPR04/hqdefault.jpg"
-              alt="Watch Video"
-              style="width:100%; border:1px solid rgba(42,171,140,0.2); display:block;">
-            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-                background:rgba(42,171,140,0.9); padding:16px 28px; color:#fff;
-                font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;
-                min-width:160px; text-align:center; pointer-events:none;">
-              ▶ Watch on YouTube
-            </div>
-          </a>
+          <div class="video-thumb" onclick="window.location.href='https://www.youtube.com/watch?v=5sMlyRvPR04'">
+            <img src="https://img.youtube.com/vi/5sMlyRvPR04/hqdefault.jpg" alt="Watch Video">
+            <div class="video-thumb-overlay">▶ Watch on YouTube</div>
+          </div>
 
-          <a href="https://www.youtube.com/watch?v=ixNcRFhNzv8" target="_blank" 
-            style="display:block; margin-top:16px; position:relative;">
-              <img src="https://img.youtube.com/vi/ixNcRFhNzv8/hqdefault.jpg"
-              alt="Watch Video"
-              style="width:100%; border:1px solid rgba(42,171,140,0.2);">
-            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-              background:rgba(42,171,140,0.9); padding:12px 20px; color:#fff;
-              font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;">
-              ▶ Watch on YouTube
-            </div>
-          </a>
+          <div class="video-thumb" onclick="window.location.href='https://www.youtube.com/watch?v=ixNcRFhNzv8'">
+            <img src="https://img.youtube.com/vi/ixNcRFhNzv8/hqdefault.jpg" alt="Watch Video">
+            <div class="video-thumb-overlay">▶ Watch on YouTube</div>
+          </div>
 
-          <a href="https://www.youtube.com/watch?v=omTIzDe7acM" target="_blank" 
-            style="display:block; margin-top:16px; position:relative;">
-              <img src="https://img.youtube.com/vi/omTIzDe7acM/hqdefault.jpg"
-              alt="Watch Video"
-              style="width:100%; border:1px solid rgba(42,171,140,0.2);">
-            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-              background:rgba(42,171,140,0.9); padding:12px 20px; color:#fff;
-              font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;">
-              ▶ Watch on YouTube
-            </div>
-          </a>
+          <div class="video-thumb" onclick="window.location.href='https://www.youtube.com/watch?v=omTIzDe7acM'">
+            <img src="https://img.youtube.com/vi/omTIzDe7acM/hqdefault.jpg" alt="Watch Video">
+            <div class="video-thumb-overlay">▶ Watch on YouTube</div>
+          </div>
 
-          <a href="https://www.youtube.com/watch?v=OCnDAgRWOck" target="_blank" 
-            style="display:block; margin-top:16px; position:relative;">
-              <img src="https://img.youtube.com/vi/OCnDAgRWOck/hqdefault.jpg"
-              alt="Watch Video"
-              style="width:100%; border:1px solid rgba(42,171,140,0.2);">
-            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-              background:rgba(42,171,140,0.9); padding:12px 20px; color:#fff;
-              font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;">
-              ▶ Watch on YouTube
-            </div>
-          </a>
+          <div class="video-thumb" onclick="window.location.href='https://www.youtube.com/watch?v=OCnDAgRWOck'">
+            <img src="https://img.youtube.com/vi/OCnDAgRWOck/hqdefault.jpg" alt="Watch Video">
+            <div class="video-thumb-overlay">▶ Watch on YouTube</div>
+          </div>
         </div>
 
         <div class="work-card observe">
@@ -792,53 +786,25 @@
           <p class="work-desc">Real feedback from the clients who rely on infiniVAN every day, and our leaders share the vision, milestones, and strategy driving our growth.</p>
 
           <!-- YouTube Embed -->
-          <a href="https://www.youtube.com/watch?v=1mhEaOyGVic" target="_blank" 
-            style="display:block; margin-top:16px; position:relative;">
-              <img src="https://img.youtube.com/vi/1mhEaOyGVic/hqdefault.jpg"
-              alt="Watch Video"
-              style="width:100%; border:1px solid rgba(42,171,140,0.2);">
-            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-              background:rgba(42,171,140,0.9); padding:12px 20px; color:#fff;
-              font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;">
-              ▶ Watch on YouTube
-            </div>
-          </a>
+          <div class="video-thumb" onclick="window.location.href='https://www.youtube.com/watch?v=1mhEaOyGVic'">
+            <img src="https://img.youtube.com/vi/1mhEaOyGVic/hqdefault.jpg" alt="Watch Video">
+            <div class="video-thumb-overlay">▶ Watch on YouTube</div>
+          </div>
 
-          <a href="https://www.youtube.com/watch?v=_sbqbMmjy7I" target="_blank" 
-            style="display:block; margin-top:16px; position:relative;">
-              <img src="https://img.youtube.com/vi/_sbqbMmjy7I/hqdefault.jpg"
-              alt="Watch Video"
-              style="width:100%; border:1px solid rgba(42,171,140,0.2);">
-            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-              background:rgba(42,171,140,0.9); padding:12px 20px; color:#fff;
-              font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;">
-              ▶ Watch on YouTube
-            </div>
-          </a>
+          <div class="video-thumb" onclick="window.location.href='https://www.youtube.com/watch?v=_sbqbMmjy7I'">
+            <img src="https://img.youtube.com/vi/_sbqbMmjy7I/hqdefault.jpg" alt="Watch Video">
+            <div class="video-thumb-overlay">▶ Watch on YouTube</div>
+          </div>
 
-          <a href="https://www.youtube.com/watch?v=BroXRjChwHU" target="_blank" 
-            style="display:block; margin-top:16px; position:relative;">
-              <img src="https://img.youtube.com/vi/BroXRjChwHU/hqdefault.jpg"
-              alt="Watch Video"
-              style="width:100%; border:1px solid rgba(42,171,140,0.2);">
-            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-              background:rgba(42,171,140,0.9); padding:12px 20px; color:#fff;
-              font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;">
-              ▶ Watch on YouTube
-            </div>
-          </a>
+          <div class="video-thumb" onclick="window.location.href='https://www.youtube.com/watch?v=BroXRjChwHU'">
+            <img src="https://img.youtube.com/vi/BroXRjChwHU/hqdefault.jpg" alt="Watch Video">
+            <div class="video-thumb-overlay">▶ Watch on YouTube</div>
+          </div>
 
-          <a href="https://www.youtube.com/watch?v=T2vtIht1rXs" target="_blank" 
-            style="display:block; margin-top:16px; position:relative;">
-              <img src="https://img.youtube.com/vi/T2vtIht1rXs/hqdefault.jpg"
-              alt="Watch Video"
-              style="width:100%; border:1px solid rgba(42,171,140,0.2);">
-            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-              background:rgba(42,171,140,0.9); padding:12px 20px; color:#fff;
-              font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;">
-              ▶ Watch on YouTube
-            </div>
-          </a>
+          <div class="video-thumb" onclick="window.location.href='https://www.youtube.com/watch?v=T2vtIht1rXs'">
+            <img src="https://img.youtube.com/vi/T2vtIht1rXs/hqdefault.jpg" alt="Watch Video">
+            <div class="video-thumb-overlay">▶ Watch on YouTube</div>
+          </div>
         </div>
         <div class="work-card observe">
           <div class="work-tag">Graphic Design · Keysquare Inc.</div>
